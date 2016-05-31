@@ -1,6 +1,6 @@
 {
   "name": "pldin601/php-lambda",
-  "description": "Lambda function generator",
+  "description": "Generates lambda function using given string pattern",
   "license": "MIT",
   "authors": [
     {
