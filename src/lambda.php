@@ -18,9 +18,9 @@ function l($pattern)
         throw new \Exception("Mixing of indexed and unindexed placeholders is not supported.");
     } elseif ($isUnindexed) {
         return lambda($pattern);
-    } else {
-        return lambdaIndexed($pattern);
     }
+
+    return lambdaIndexed($pattern);
 }
 
 /**
