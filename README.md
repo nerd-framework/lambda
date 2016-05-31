@@ -10,17 +10,20 @@ Generates lambda function using given string pattern.
 ```php
 use function Lambda\l;
 
+// Unindexed placeholders mode
 $sum = l('_ + _');
 
 echo $sum(2, 4); // will output 6
 
 
-$neg = l('-(_)');
+// Indexed placeholders mode
+$func = l('_0 + (_0 * _1)');
 
-echo $neg('11'); // will output -11
+echo $func(2, 6); // will output 14
 
 
+// Filtering function
 $numbers = range(1, 10);
 
-$evens = array_map($numbers, l('_ % 2 == 0'));
+$evens = array_map($numbers, l('_ % 2 == 0')); // will produce array [2, 4, 6, 8, 10]
 ```
