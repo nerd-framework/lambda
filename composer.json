@@ -1,0 +1,24 @@
+{
+  "name": "pldin601/php-lambda",
+  "description": "Lambda function generator",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Roman Gemini",
+      "email": "roman_gemini@ukr.net"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^5.3",
+    "squizlabs/php_codesniffer": "~2.6",
+    "codeclimate/php-test-reporter": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tests\\": "tests"
+    },
+    "files": [
+      "src/lambda.php"
+    ]
+  }
+}
