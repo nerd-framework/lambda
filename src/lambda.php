@@ -31,7 +31,7 @@ function l($pattern)
  */
 function isUnindexed($pattern)
 {
-    return preg_match('~_(?!\d+)~', $pattern);
+    return preg_match('~\$(?!\d+)~', $pattern);
 }
 
 /**
@@ -42,7 +42,7 @@ function isUnindexed($pattern)
  */
 function isIndexed($pattern)
 {
-    return preg_match('~_\d+~', $pattern);
+    return preg_match('~\$\d+~', $pattern);
 }
 
 /**
@@ -56,7 +56,7 @@ function lambda($pattern)
     $index = 0;
     $args = [];
 
-    $pattern = preg_replace_callback('~(_)(?!\d+)~', function () use (&$index, &$args) {
+    $pattern = preg_replace_callback('~(\$)(?!\d+)~', function () use (&$index, &$args) {
         $arg = '$arg' . $index ++;
         array_push($args, $arg);
         return $arg;
@@ -75,7 +75,7 @@ function lambdaIndexed($pattern)
 {
     $args = [];
 
-    $pattern = preg_replace_callback('~(_(\d+))~', function ($match) use (&$index, &$args) {
+    $pattern = preg_replace_callback('~(\$(\d+))~', function ($match) use (&$index, &$args) {
         $arg = '$arg' . $match[2];
         array_push($args, $arg);
         return $arg;

@@ -13,7 +13,7 @@ class LambdaTest extends \PHPUnit_Framework_TestCase
 {
     public function testUnindexedFunction()
     {
-        $f = l('_ + _');
+        $f = l('$ + $');
 
         $this->assertTrue(is_callable($f));
 
@@ -22,7 +22,7 @@ class LambdaTest extends \PHPUnit_Framework_TestCase
 
     public function testIndexedFunction()
     {
-        $f = l('_0 + (_0 * _1)');
+        $f = l('$0 + ($0 * $1)');
 
         $this->assertTrue(is_callable($f));
 
@@ -31,13 +31,13 @@ class LambdaTest extends \PHPUnit_Framework_TestCase
 
     public function testNegFunction()
     {
-        $this->assertEquals(-12, call_user_func(l('-(_)'), 12));
+        $this->assertEquals(-12, call_user_func(l('-($)'), 12));
     }
 
     public function testAsFilter()
     {
         $arr = range(1, 10);
-        $filtered = array_values(array_filter($arr, l('!(_ & 1)')));
+        $filtered = array_values(array_filter($arr, l('!($ & 1)')));
 
         $this->assertEquals([2,4,6,8,10], $filtered);
     }
@@ -48,6 +48,6 @@ class LambdaTest extends \PHPUnit_Framework_TestCase
      */
     public function testMixingPlaceholders()
     {
-        l('_ + _0');
+        l('$ + $0');
     }
 }

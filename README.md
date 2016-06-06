@@ -11,13 +11,13 @@ Generates lambda function using given string pattern.
 use function Lambda\l;
 
 // Unindexed placeholders mode
-$sum = l('_ + _');
+$sum = l('$ + $');
 
 echo $sum(2, 4); // will output 6
 
 
 // Indexed placeholders mode
-$func = l('_0 + (_0 * _1)');
+$func = l('$0 + ($0 * $1)');
 
 echo $func(2, 6); // will output 14
 
@@ -25,5 +25,5 @@ echo $func(2, 6); // will output 14
 // Filtering function
 $numbers = range(1, 10);
 
-$evens = array_map($numbers, l('_ % 2 == 0')); // will produce array [2, 4, 6, 8, 10]
+$evens = array_map($numbers, l('$ % 2 == 0')); // will produce array [2, 4, 6, 8, 10]
 ```
