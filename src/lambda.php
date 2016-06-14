@@ -17,7 +17,7 @@ function l($pattern)
     if ($isUnindexed && $isIndexed) {
         throw new \Exception("Mixing of indexed and unindexed placeholders is not supported.");
     } elseif ($isUnindexed) {
-        return lambda($pattern);
+        return lambdaUnindexed($pattern);
     }
 
     return lambdaIndexed($pattern);
@@ -51,7 +51,7 @@ function isIndexed($pattern)
  * @param string $pattern
  * @return string
  */
-function lambda($pattern)
+function lambdaUnindexed($pattern)
 {
     $index = 0;
     $args = [];
