@@ -6,8 +6,10 @@ namespace Lambda;
  * Creates function using $pattern.
  *
  * @param string $pattern
- * @return callable
+ *
  * @throws \Exception
+ *
+ * @return callable
  */
 function l($pattern)
 {
@@ -15,7 +17,7 @@ function l($pattern)
     $isIndexed = isIndexed($pattern);
 
     if ($isUnindexed && $isIndexed) {
-        throw new \Exception("Mixing of indexed and unindexed placeholders is not supported.");
+        throw new \Exception('Mixing of indexed and unindexed placeholders is not supported.');
     } elseif ($isUnindexed) {
         return lambdaUnindexed($pattern);
     }
@@ -27,6 +29,7 @@ function l($pattern)
  * Whether $pattern uses unindexed placeholders.
  *
  * @param string $pattern
+ *
  * @return int
  */
 function isUnindexed($pattern)
@@ -38,6 +41,7 @@ function isUnindexed($pattern)
  * Whether $pattern uses indexed placeholders.
  *
  * @param string $pattern
+ *
  * @return int
  */
 function isIndexed($pattern)
@@ -49,6 +53,7 @@ function isIndexed($pattern)
  * Creates function from unindexed pattern.
  *
  * @param string $pattern
+ *
  * @return string
  */
 function lambdaUnindexed($pattern)
@@ -57,8 +62,9 @@ function lambdaUnindexed($pattern)
     $args = [];
 
     $pattern = preg_replace_callback('~(\$)(?!\d+)~', function () use (&$index, &$args) {
-        $arg = '$arg' . $index ++;
+        $arg = '$arg'.$index++;
         array_push($args, $arg);
+
         return $arg;
     }, $pattern);
 
@@ -69,6 +75,7 @@ function lambdaUnindexed($pattern)
  * Creates function from indexed pattern.
  *
  * @param $pattern
+ *
  * @return string
  */
 function lambdaIndexed($pattern)
@@ -76,8 +83,9 @@ function lambdaIndexed($pattern)
     $args = [];
 
     $pattern = preg_replace_callback('~(\$(\d+))~', function ($match) use (&$index, &$args) {
-        $arg = '$arg' . $match[2];
+        $arg = '$arg'.$match[2];
         array_push($args, $arg);
+
         return $arg;
     }, $pattern);
 

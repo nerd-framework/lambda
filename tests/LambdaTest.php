@@ -4,7 +4,6 @@
  * @date 31.05.16
  * @time 18:00
  */
-
 namespace Tests;
 
 use function Lambda\l;
@@ -39,11 +38,12 @@ class LambdaTest extends \PHPUnit_Framework_TestCase
         $arr = range(1, 10);
         $filtered = array_values(array_filter($arr, l('!($ & 1)')));
 
-        $this->assertEquals([2,4,6,8,10], $filtered);
+        $this->assertEquals([2, 4, 6, 8, 10], $filtered);
     }
 
     /**
      * @expectedException \Exception
+     *
      * @throws \Exception
      */
     public function testMixingPlaceholders()
