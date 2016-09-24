@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/pldin601/php-lambda/badges/gpa.svg)](https://codeclimate.com/github/pldin601/php-lambda)
 [![Test Coverage](https://codeclimate.com/github/pldin601/php-lambda/badges/coverage.svg)](https://codeclimate.com/github/pldin601/php-lambda/coverage)
 [![Issue Count](https://codeclimate.com/github/pldin601/php-lambda/badges/issue_count.svg)](https://codeclimate.com/github/pldin601/php-lambda)
+[![StyleCI](https://styleci.io/repos/60102687/shield?branch=master)](https://styleci.io/repos/60102687)
 
 Generates lambda function using given string pattern.
 
