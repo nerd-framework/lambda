@@ -4,7 +4,7 @@
  * @date 31.05.16
  * @time 18:00
  */
-namespace Tests;
+namespace tests;
 
 use function Lambda\l;
 
