@@ -26,5 +26,5 @@ echo $func(2, 6); // will output 14
 // Filtering function
 $numbers = range(1, 10);
 
-$evens = array_map($numbers, l('$ % 2 == 0')); // will produce array [2, 4, 6, 8, 10]
+$evens = array_filter(l('$ % 2 == 0'), $numbers); // will produce array [2, 4, 6, 8, 10]
 ```
