@@ -1,6 +1,6 @@
 <?php
 
-namespace Lambda;
+namespace Nerd\Lambda;
 
 /**
  * Creates function using $pattern.

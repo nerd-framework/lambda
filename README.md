@@ -1,8 +1,6 @@
 # php-lambda
-[![Build Status](https://travis-ci.org/pldin601/php-lambda.svg?branch=master)](https://travis-ci.org/pldin601/php-lambda)
-[![Code Climate](https://codeclimate.com/github/pldin601/php-lambda/badges/gpa.svg)](https://codeclimate.com/github/pldin601/php-lambda)
-[![Test Coverage](https://codeclimate.com/github/pldin601/php-lambda/badges/coverage.svg)](https://codeclimate.com/github/pldin601/php-lambda/coverage)
-[![Issue Count](https://codeclimate.com/github/pldin601/php-lambda/badges/issue_count.svg)](https://codeclimate.com/github/pldin601/php-lambda)
+[![Build Status](https://travis-ci.org/nerd-components/lambda.svg?branch=master)](https://travis-ci.org/nerd-components/lambda)
+[![Coverage Status](https://coveralls.io/repos/github/nerd-components/lambda/badge.svg?branch=master)](https://coveralls.io/github/nerd-components/lambda?branch=master)
 [![StyleCI](https://styleci.io/repos/60102687/shield?branch=master)](https://styleci.io/repos/60102687)
 
 Generates lambda function using given string pattern.
