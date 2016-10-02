@@ -6,7 +6,7 @@
  */
 namespace tests;
 
-use function Lambda\l;
+use function Nerd\Lambda\l;
 
 class LambdaTest extends \PHPUnit_Framework_TestCase
 {
