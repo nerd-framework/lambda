@@ -1,7 +1,7 @@
 # php-lambda
 [![Build Status](https://travis-ci.org/nerd-components/lambda.svg?branch=master)](https://travis-ci.org/nerd-components/lambda)
 [![Coverage Status](https://coveralls.io/repos/github/nerd-components/lambda/badge.svg?branch=master)](https://coveralls.io/github/nerd-components/lambda?branch=master)
-[![StyleCI](https://styleci.io/repos/60102687/shield?branch=master)](https://styleci.io/repos/60102687)
+[![StyleCI](https://github.styleci.io/repos/60102687/shield?branch=master)](https://github.styleci.io/repos/60102687?branch=master)
 
 Generates lambda function using given string pattern.
 
