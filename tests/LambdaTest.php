@@ -4,6 +4,7 @@
  * @date 31.05.16
  * @time 18:00
  */
+
 namespace tests;
 
 use function Nerd\Lambda\l;
@@ -42,8 +43,6 @@ class LambdaTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     *
-     *
      * @throws \Exception
      */
     public function testMixingPlaceholders()
