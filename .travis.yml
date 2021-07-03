@@ -2,6 +2,10 @@ language: php
 php:
   - '7.4'
 
+env:
+  global:
+    - XDEBUG_MODE=coverage
+
 install:
   - composer self-update
   - make install
@@ -9,4 +13,4 @@ install:
 script: make lint test
 
 after_success:
-  - travis_retry composer exec 'coveralls -v'
+  - travis_retry composer exec 'coveralls --coverage_clover=clover.xml -v'
