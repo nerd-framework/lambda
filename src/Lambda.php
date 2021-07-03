@@ -69,8 +69,9 @@ function lambdaUnindexed(string $pattern): string
         return $arg;
     }, $pattern);
     $args_pattern = implode(', ', $args);
+    $function_body = "function $function_name($args_pattern) { return ${pattern}; }";
 
-    eval("function $function_name($args_pattern) { return ${pattern}; }");
+    eval($function_body);
 
     return $function_name;
 }
@@ -94,8 +95,9 @@ function lambdaIndexed(string $pattern): string
         return $arg;
     }, $pattern);
     $args_pattern = implode(', ', array_unique($args));
+    $function_body = "function $function_name($args_pattern) { return $pattern; }";
 
-    eval("function $function_name($args_pattern) { return $pattern; }");
+    eval($function_body);
 
     return $function_name;
 }
