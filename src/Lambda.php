@@ -34,7 +34,7 @@ function l(string $pattern): callable
  */
 function isUnindexed(string $pattern): bool
 {
-    return !!preg_match('~\$(?!\d+)~', $pattern);
+    return (bool) preg_match('~\$(?!\d+)~', $pattern);
 }
 
 /**
@@ -46,7 +46,7 @@ function isUnindexed(string $pattern): bool
  */
 function isIndexed(string $pattern): bool
 {
-    return !!preg_match('~\$\d+~', $pattern);
+    return (bool) preg_match('~\$\d+~', $pattern);
 }
 
 /**
