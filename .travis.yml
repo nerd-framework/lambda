@@ -14,4 +14,4 @@ install:
 script: make lint test
 
 after_success:
-  - travis_retry composer exec 'coveralls --coverage_clover build/logs/clover.xml -v'
+  - travis_retry composer exec 'coveralls -v'
