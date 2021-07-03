@@ -60,6 +60,7 @@ function lambdaUnindexed(string $pattern): string
 {
     $index = 0;
     $args = [];
+    $function_name = 'lambda_'.rand();
 
     $pattern = preg_replace_callback('~(\$)(?!\d+)~', function () use (&$index, &$args) {
         $arg = '$arg'.$index++;
@@ -67,8 +68,11 @@ function lambdaUnindexed(string $pattern): string
 
         return $arg;
     }, $pattern);
+    $args_pattern = implode(', ', $args);
 
-    return create_function(implode(', ', $args), "return $pattern;");
+    eval("function $function_name($args_pattern) { return ${pattern}; }");
+
+    return $function_name;
 }
 
 /**
@@ -82,12 +86,16 @@ function lambdaIndexed(string $pattern): string
 {
     $args = [];
 
+    $function_name = 'lambda_'.rand();
     $pattern = preg_replace_callback('~(\$(\d+))~', function ($match) use (&$index, &$args) {
         $arg = '$arg'.$match[2];
         array_push($args, $arg);
 
         return $arg;
     }, $pattern);
+    $args_pattern = implode(', ', array_unique($args));
 
-    return create_function(implode(', ', array_unique($args)), "return $pattern;");
+    eval("function $function_name($args_pattern) { return $pattern; }");
+
+    return $function_name;
 }
