@@ -11,7 +11,7 @@ namespace Nerd\Lambda;
  *
  * @return callable
  */
-function l($pattern)
+function l(string $pattern): callable
 {
     $isUnindexed = isUnindexed($pattern);
     $isIndexed = isIndexed($pattern);
@@ -30,11 +30,11 @@ function l($pattern)
  *
  * @param string $pattern
  *
- * @return int
+ * @return bool
  */
-function isUnindexed($pattern)
+function isUnindexed(string $pattern): bool
 {
-    return preg_match('~\$(?!\d+)~', $pattern);
+    return !!preg_match('~\$(?!\d+)~', $pattern);
 }
 
 /**
@@ -42,11 +42,11 @@ function isUnindexed($pattern)
  *
  * @param string $pattern
  *
- * @return int
+ * @return bool
  */
-function isIndexed($pattern)
+function isIndexed(string $pattern): bool
 {
-    return preg_match('~\$\d+~', $pattern);
+    return !!preg_match('~\$\d+~', $pattern);
 }
 
 /**
@@ -56,7 +56,7 @@ function isIndexed($pattern)
  *
  * @return string
  */
-function lambdaUnindexed($pattern)
+function lambdaUnindexed(string $pattern): string
 {
     $index = 0;
     $args = [];
@@ -78,7 +78,7 @@ function lambdaUnindexed($pattern)
  *
  * @return string
  */
-function lambdaIndexed($pattern)
+function lambdaIndexed(string $pattern): string
 {
     $args = [];
 

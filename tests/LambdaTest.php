@@ -8,7 +8,7 @@ namespace tests;
 
 use function Nerd\Lambda\l;
 
-class LambdaTest extends \PHPUnit_Framework_TestCase
+class LambdaTest extends \PHPUnit\Framework\TestCase
 {
     public function testUnindexedFunction()
     {
@@ -42,12 +42,14 @@ class LambdaTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Exception
+     *
      *
      * @throws \Exception
      */
     public function testMixingPlaceholders()
     {
+        $this->expectException(\Exception::class);
+
         l('$ + $0');
     }
 }
